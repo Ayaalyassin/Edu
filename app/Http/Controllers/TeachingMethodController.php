@@ -139,4 +139,18 @@ class TeachingMethodController extends Controller
             return $this->returnError($ex->getCode(), 'Please try again later');
         }
     }
+
+    public function getMyTeachingMethod()
+    {
+        try {
+            $profile_teacher =auth()->user()->profile_teacher()->first();
+            $teaching_methods=[];
+            if($profile_teacher)
+                $teaching_methods=$profile_teacher->teaching_methods()->get();
+
+            return $this->returnData($teaching_methods, 'operation completed successfully');
+        } catch (\Exception $ex) {
+            return $this->returnError($ex->getCode(), "Please try again later");
+        }
+    }
 }

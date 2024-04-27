@@ -169,4 +169,19 @@ class AdsController extends Controller
             return $this->returnError($ex->getCode(), 'Please try again later');
         }
     }
+
+    public function getMyAds()
+    {
+        try {
+            $profile_teacher =auth()->user()->profile_teacher()->first();
+
+            $ads=[];
+            if($profile_teacher)
+                $ads=$profile_teacher->ads()->get();
+
+            return $this->returnData($ads, 'operation completed successfully');
+        } catch (\Exception $ex) {
+            return $this->returnError($ex->getCode(), "Please try again later");
+        }
+    }
 }

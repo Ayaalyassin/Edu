@@ -19,8 +19,9 @@ class TeachingMethodUserController extends Controller
     {
         try {
             $profile_student=auth()->user()->profile_student()->first();
-
-            $teaching_methods_user=$profile_student->teaching_methods_user()->get();
+            $teaching_methods_user=[];
+            if($profile_student)
+                 $teaching_methods_user=$profile_student->teaching_methods_user()->get();
             return $this->returnData($teaching_methods_user,'operation completed successfully');
         } catch (\Exception $ex) {
             return $this->returnError($ex->getCode(),$ex->getMessage());
@@ -39,7 +40,7 @@ class TeachingMethodUserController extends Controller
             $teaching_method=TeachingMethod::find($request->teaching_method_id);
 
             if(!$teaching_method)
-                return $this->returnError("", 'teaching method not found');
+                return $this->returnError("401", 'teaching method not found');
             $is_exist=$profile_student->teaching_methods_user()->where('teaching_method_id',$request->teaching_method_id)->get();
             if(count($is_exist)>0)
                 return $this->returnError("400", 'teaching method already exist');

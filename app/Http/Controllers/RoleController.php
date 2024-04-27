@@ -69,4 +69,28 @@ class RoleController extends Controller
             return $this->returnError($ex->getCode(),'Please try again later');
         }
     }
+
+    public function getAll()
+    {
+        try {
+            $data = Role::all();
+            return $this->returnData($data,'operation completed successfully');
+        } catch (\Exception $ex) {
+            return $this->returnError($ex->getCode(),'Please try again later');
+        }
+    }
+
+
+    public function getById($id)
+    {
+        try {
+            $data = Role::find($id);
+            if (!$data)
+                return $this->returnError("401",'Not found');
+
+            return $this->returnData($data,'operation completed successfully');
+        } catch (\Exception $ex) {
+            return $this->returnError($ex->getCode(),'Please try again later');
+        }
+    }
 }
