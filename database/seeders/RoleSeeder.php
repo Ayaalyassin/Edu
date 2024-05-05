@@ -15,22 +15,32 @@ class RoleSeeder extends Seeder
     {
         Role::create([
             'name' => 'student',
+<<<<<<< HEAD
             'guard_name'=>'api'
+=======
+>>>>>>> origin/khader
 
         ]);
         Role::create([
             'name' => 'teacher',
+<<<<<<< HEAD
             'guard_name'=>'api'
+=======
+>>>>>>> origin/khader
 
         ]);
         Role::create([
             'name' => 'admin',
+<<<<<<< HEAD
             'guard_name'=>'api'
         ]);
 
         Role::create([
             'name' => 'employee',
             'guard_name'=>'api'
+=======
+
+>>>>>>> origin/khader
         ]);
     }
 }

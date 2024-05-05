@@ -28,10 +28,17 @@ class RegisterRequest extends FormRequest
         return [
             'name' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users',
+<<<<<<< HEAD
             'password' => 'required|string|min:8',
             'address' => 'required|string',
             'governorate' => 'required|string',
             'birth_date' => 'date',
+=======
+            'password' => 'required|string|min:6|regex:/[a-zA-Z]/',
+            'address' => 'required|string',
+            'governorate' => 'required|string',
+            'birth_date' => 'required|date',
+>>>>>>> origin/khader
             'image' => 'sometimes|image|mimes:jpeg,jpg,png,gif',
             'role_id' => 'required|integer'
         ];

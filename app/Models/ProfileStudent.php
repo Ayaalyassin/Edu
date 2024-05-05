@@ -48,11 +48,16 @@ class ProfileStudent extends Model
 
     public function report_as_reporter()
     {
+<<<<<<< HEAD
         return $this->morphMany(Report::class, 'reporter_id', 'id');
+=======
+        return $this->morphMany(Report::class, 'reporter');
+>>>>>>> origin/khader
     }
 
     public function report_as_reported()
     {
+<<<<<<< HEAD
         return $this->morphMany(Report::class, 'reported_id', 'id');
     }
 
@@ -60,4 +65,10 @@ class ProfileStudent extends Model
     {
         return $this->hasMany(LockHour::class, 'student_id', 'id');
     }
+=======
+        return $this->morphMany(Report::class, 'reported');
+    }
+
+
+>>>>>>> origin/khader
 }

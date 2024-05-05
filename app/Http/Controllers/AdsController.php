@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+use App\Http\Requests\UpdateAdsRequest;
+>>>>>>> origin/khader
 use App\Models\Ads;
 use App\Models\ProfileTeacher;
 use App\Models\User;
@@ -71,6 +75,10 @@ class AdsController extends Controller
                 'price' => $request->price,
                 'number_students' => $request->number_students,
                 'file' => $file,
+<<<<<<< HEAD
+=======
+                'place'=>$request->place
+>>>>>>> origin/khader
             ]);
 
 
@@ -110,7 +118,11 @@ class AdsController extends Controller
     /**
      * Update the specified resource in storage.
      */
+<<<<<<< HEAD
     public function update(AdsRequest $request, $id)
+=======
+    public function update(UpdateAdsRequest $request, $id)
+>>>>>>> origin/khader
     {
         try {
             DB::beginTransaction();
@@ -132,6 +144,10 @@ class AdsController extends Controller
                 'price' => isset($request->price) ? $request->price : $ads->price,
                 'number_students' => isset($request->number_students) ? $request->number_students : $ads->number_students,
                 'file' => isset($request->file) ? $file : $ads->file,
+<<<<<<< HEAD
+=======
+                'place'=> isset($request->place) ? $request->place : $ads->place
+>>>>>>> origin/khader
             ]);
 
             DB::commit();

@@ -19,9 +19,16 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+<<<<<<< HEAD
         $this->call([
             AdminSeed::class,
             RoleSeeder::class,
         ]);
+=======
+        $this->call(
+            RoleSeeder::class
+        );
+        $this->call(AdminSeed::class);
+>>>>>>> origin/khader
     }
 }

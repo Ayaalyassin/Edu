@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Note;
+<<<<<<< HEAD
 use App\Models\ProfileStudent;
+=======
+>>>>>>> origin/khader
 use Illuminate\Http\Request;
 use App\Traits\GeneralTrait;
 use Illuminate\Support\Facades\DB;
@@ -37,6 +40,7 @@ class NoteController extends Controller
         try {
             DB::beginTransaction();
 
+<<<<<<< HEAD
             $profile_teacher= auth()->user()->profile_teacher()->first();
 
             $student = ProfileStudent::find($request->student_id);
@@ -46,6 +50,17 @@ class NoteController extends Controller
             $note = $profile_teacher->note_as_teacher()->create([
                 'note' => $request->note,
                 'profile_student_id' => $request->student_id
+=======
+            $user = auth()->user();
+
+            $student = User::find($request->student_id);
+            if (!$student)
+                return $this->returnError(404, 'student not found');
+
+            $note = $user->note_as_teacher()->create([
+                'note' => $request->note,
+                'student_id' => $request->student_id
+>>>>>>> origin/khader
             ]);
 
             DB::commit();
@@ -87,7 +102,11 @@ class NoteController extends Controller
     {
         try {
             DB::beginTransaction();
+<<<<<<< HEAD
             $user = auth()->user()->profile_teacher()->first();
+=======
+            $user = auth()->user();
+>>>>>>> origin/khader
             $note = $user->note_as_teacher()->find($id);
             if (!$note)
                 return $this->returnError("", 'note not found');

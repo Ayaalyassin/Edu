@@ -93,6 +93,12 @@ class EmployeeController extends Controller
         }
     }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/khader
     public function delete($id)
     {
         try {

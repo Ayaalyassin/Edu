@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Block extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
     protected $table = "blocks_users";
+=======
+    protected $table = "blocks";
+>>>>>>> origin/khader
     protected $fillable = ['user_id', 'reason'];
 
     public function user()

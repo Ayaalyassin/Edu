@@ -76,5 +76,11 @@ class Kernel extends HttpKernel
         'isUser' => \App\Http\Middleware\UserMiddleware::class,
         'isAdmin' => \App\Http\Middleware\AdminMiddleware::class,
         'isTeacher' => \App\Http\Middleware\TeacherMiddleware::class,
+<<<<<<< HEAD
+=======
+        'profileTeacher'=>\App\Http\Middleware\HasProfileTeacherMiddleware::class,
+        'profileStudent'=>\App\Http\Middleware\HasProfileStudentMiddleware::class,
+        'hasRole'=>\App\Http\Middleware\RoleMiddleware::class,
+>>>>>>> origin/khader
     ];
 }

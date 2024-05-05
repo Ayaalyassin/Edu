@@ -7,9 +7,8 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class QualificationCourseRequest extends FormRequest
+class UpdateProfileTeacherRequest extends FormRequest
 {
-
     use GeneralTrait;
     /**
      * Determine if the user is authorized to make this request.
@@ -27,18 +26,10 @@ class QualificationCourseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string',
-            'description' => 'string',
-            'date' => 'date',
-<<<<<<< HEAD
-            'count_subscribers' => 'required|integer|min:2',
-            'price' => 'required|integer|min:1',
-            'teacher_name' => 'required|string',
-            'place' => 'required|string',
-=======
-            'count_subscribers' => 'required|integer',
-            'price' => 'required|integer'
->>>>>>> origin/khader
+            'certificate' => 'sometimes|image|mimes:jpeg,jpg,png,gif',
+            'description' => 'sometimes|string',
+            'jurisdiction' => 'sometimes|string',
+            'domain' => 'sometimes|string',
         ];
     }
 

@@ -14,9 +14,13 @@ class QualificationCourse extends Model
         'description',
         'date',
         'count_subscribers',
+<<<<<<< HEAD
         'price',
         'teacher_name',
         'place'
+=======
+        'price'
+>>>>>>> origin/khader
     ];
 
     public function user()

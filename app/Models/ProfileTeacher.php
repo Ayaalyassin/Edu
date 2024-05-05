@@ -62,9 +62,14 @@ class ProfileTeacher extends Model
     {
         return $this->morphMany(Report::class, 'reported');
     }
+<<<<<<< HEAD
     //khader
     public function day()
     {
         return $this->hasMany(CalenderDay::class, 'teacher_id', 'id');
     }
+=======
+
+
+>>>>>>> origin/khader
 }

@@ -18,10 +18,17 @@ return new class extends Migration
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->date('birth_date');
+<<<<<<< HEAD
             $table->string('image');
             $table->string('address');
             $table->string('governorate');
             
+=======
+            $table->string('image')->nullable();
+            $table->string('address');
+            $table->string('governorate');
+
+>>>>>>> origin/khader
             $table->rememberToken();
             $table->string('google_id')->nullable()->unique();
             $table->timestamps();

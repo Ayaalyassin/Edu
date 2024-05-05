@@ -7,39 +7,25 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class AdsRequest extends FormRequest
+class UpdateAdsRequest extends FormRequest
 {
     use GeneralTrait;
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
+
     public function rules(): array
     {
         return [
-<<<<<<< HEAD
             'name'=>'string',
             'description'=>'string',
             'price'=>'numeric',
             'number_students'=>'integer',
-            'file'=>'file'
-=======
-            'name'=>'required|string',
-            'description'=>'required|string',
-            'price'=>'required|numeric',
-            'number_students'=>'required|integer',
-            'file'=>'required|file',
-            'place'=>'required|string'
->>>>>>> origin/khader
+            'file'=>'file',
+            'place'=>'string'
         ];
     }
 

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+use App\Http\Requests\UpdateTeachingMethodRequest;
+>>>>>>> origin/khader
 use App\Models\ProfileTeacher;
 use App\Models\TeachingMethod;
 use Illuminate\Http\Request;
@@ -15,9 +19,14 @@ class TeachingMethodController extends Controller
     use GeneralTrait;
 
     private $uploadPath = "assets/images/teaching_methods";
+<<<<<<< HEAD
     /**
      * Display a listing of the resource.
      */
+=======
+
+
+>>>>>>> origin/khader
     public function index($teacher_id)
     {
         try {
@@ -33,9 +42,14 @@ class TeachingMethodController extends Controller
         }
     }
 
+<<<<<<< HEAD
     /**
      * Show the form for creating a new resource.
      */
+=======
+
+
+>>>>>>> origin/khader
     public function show($id)
     {
         try {
@@ -54,6 +68,7 @@ class TeachingMethodController extends Controller
         }
     }
 
+<<<<<<< HEAD
     /**
      * Store a newly created resource in storage.
      */
@@ -65,6 +80,10 @@ class TeachingMethodController extends Controller
     /**
      * Display the specified resource.
      */
+=======
+
+
+>>>>>>> origin/khader
     public function store(TeachingMethodRequest $request)
     {
         try {
@@ -81,7 +100,12 @@ class TeachingMethodController extends Controller
                 'type'=>$request->type,
                 'description'=>$request->description,
                 'file'=>$file,
+<<<<<<< HEAD
                 'status'=>0
+=======
+                'status'=>$request->status,
+                'price'=>$request->price
+>>>>>>> origin/khader
             ]);
 
 
@@ -93,6 +117,7 @@ class TeachingMethodController extends Controller
         }
     }
 
+<<<<<<< HEAD
     /**
      * Show the form for editing the specified resource.
      */
@@ -105,6 +130,12 @@ class TeachingMethodController extends Controller
      * Update the specified resource in storage.
      */
     public function update(TeachingMethodRequest $request,$id)
+=======
+
+
+
+    public function update(UpdateTeachingMethodRequest $request,$id)
+>>>>>>> origin/khader
     {
         try {
             DB::beginTransaction();
@@ -123,6 +154,11 @@ class TeachingMethodController extends Controller
                 'type'=>isset($request->type)? $request->type :$teaching_method->type,
                 'description'=>isset($request->description)? $request->description :$teaching_method->description,
                 'file'=>isset($request->file)? $file :$teaching_method->file,
+<<<<<<< HEAD
+=======
+                'status'=>isset($request->status)? $request->status :$teaching_method->status,
+                'price'=>isset($request->price)? $request->price :$teaching_method->price,
+>>>>>>> origin/khader
             ]);
 
             DB::commit();
@@ -133,9 +169,13 @@ class TeachingMethodController extends Controller
         }
     }
 
+<<<<<<< HEAD
     /**
      * Remove the specified resource from storage.
      */
+=======
+
+>>>>>>> origin/khader
     public function destroy($id)
     {
         try {

@@ -17,11 +17,19 @@ return new class extends Migration
             $table->text('reason');
             $table->date('date');
 
+<<<<<<< HEAD
             $table->unsignedBigInteger('reporter_id')->nullable();//المبلغ
             $table->string('reporter_type')->nullable();
 
             $table->unsignedBigInteger('reported_id')->nullable();//المبلغ عنه
             $table->string('reported_type')->nullable();
+=======
+            $table->bigInteger('reporter_id')->unsigned();
+            $table->foreign('reporter_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->bigInteger('reported_id')->unsigned();//المبلغ عنه
+            $table->foreign('reported_id')->references('id')->on('users')->onDelete('cascade');
+>>>>>>> origin/khader
 
             $table->timestamps();
         });

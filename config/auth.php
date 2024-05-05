@@ -17,7 +17,16 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+<<<<<<< HEAD
 
+=======
+    'guards' => [
+        'custom' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+    ],
+>>>>>>> origin/khader
 
     /*
     |--------------------------------------------------------------------------

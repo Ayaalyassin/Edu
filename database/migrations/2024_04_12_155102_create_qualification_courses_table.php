@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('qualification_courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+<<<<<<< HEAD
             $table->string('teacher_name');
+=======
+>>>>>>> origin/khader
             $table->string('description');
             $table->date('date');
             $table->integer('price');

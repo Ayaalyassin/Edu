@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+use App\Http\Requests\UpdateProfileTeacherRequest;
+>>>>>>> origin/khader
 use App\Models\ProfileTeacher;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
@@ -14,15 +18,24 @@ class ProfileTeacherController extends Controller
     use GeneralTrait;
 
     private $uploadPath = "assets/images/profile_teachers";
+<<<<<<< HEAD
     /**
      * Display a listing of the resource.
      */
+=======
+
+
+>>>>>>> origin/khader
     public function index()
     {
         try {
             DB::beginTransaction();
 
+<<<<<<< HEAD
             $profile_teacher = ProfileTeacher::all();
+=======
+            $profile_teacher = ProfileTeacher::where('status',1)->get();
+>>>>>>> origin/khader
             $profile_teacher->loadMissing(['user']);
 
             DB::commit();
@@ -33,6 +46,7 @@ class ProfileTeacherController extends Controller
         }
     }
 
+<<<<<<< HEAD
     /**
      * Show the form for creating a new resource.
      */
@@ -44,6 +58,9 @@ class ProfileTeacherController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+=======
+
+>>>>>>> origin/khader
     public function store(ProfileTeacherRequest $request)
     {
         try {
@@ -106,6 +123,7 @@ class ProfileTeacherController extends Controller
         }
     }
 
+<<<<<<< HEAD
     /**
      * Show the form for editing the specified resource.
      */
@@ -116,6 +134,12 @@ class ProfileTeacherController extends Controller
 
 
     public function update(ProfileTeacherRequest $request)
+=======
+
+
+
+    public function update(UpdateProfileTeacherRequest $request)
+>>>>>>> origin/khader
     {
         try {
             DB::beginTransaction();
@@ -131,8 +155,14 @@ class ProfileTeacherController extends Controller
 
             $profile_teacher->update([
                 'certificate' => isset($request->certificate) ? $certificate : $profile_teacher->certificate,
+<<<<<<< HEAD
                 'about' => isset($request->about) ? $request->about : $profile_teacher->about,
                 'competent' => isset($request->competent) ? $request->competent : $profile_teacher->competent,
+=======
+                'description' => isset($request->description) ? $request->description : $profile_teacher->description,
+                'jurisdiction' => isset($request->jurisdiction) ? $request->jurisdiction : $profile_teacher->jurisdiction,
+                'domain'=>isset($request->domain) ? $request->domain : $profile_teacher->domain,
+>>>>>>> origin/khader
             ]);
 
             DB::commit();

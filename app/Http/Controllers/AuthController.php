@@ -21,13 +21,26 @@ class AuthController extends Controller
 
     private $uploadPath = "assets/images/users";
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/khader
     public function login(LoginRequest $request)
     {
         $credentials = $request->only(['email', 'password']);
         $token = JWTAuth::attempt($credentials);
 
+<<<<<<< HEAD
         if (!$token)
             return $this->returnError('token Not found', 400);
+=======
+        $exist=User::where('email',$request->email)->first();
+        if($exist && !$token)
+            return $this->returnError(400,'The password is wrong');
+
+        if (!$token)
+            return $this->returnError(400,'Account Not found');
+>>>>>>> origin/khader
 
         $user = auth()->user();
         $user->token = $token;
@@ -85,8 +98,11 @@ class AuthController extends Controller
         $image = null;
         if (isset($request->image)) {
             $image = $this->saveImage($request->image, $this->uploadPath);
+<<<<<<< HEAD
         } else {
             return $this->returnError('the image not found', 404);
+=======
+>>>>>>> origin/khader
         }
         $user = User::create([
             'name'           => $request->name,
@@ -103,6 +119,11 @@ class AuthController extends Controller
         $user->token = $token;
 
         $role = Role::where('id', '=', $request->role_id)->first();
+<<<<<<< HEAD
+=======
+        if(!$role)
+            return $this->returnError(400,'Role Not found');
+>>>>>>> origin/khader
         $user->assignRole($role);
         $user->loadMissing(['roles']);
         if (!$token)

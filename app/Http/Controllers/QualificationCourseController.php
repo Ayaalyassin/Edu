@@ -10,9 +10,12 @@ use App\Http\Requests\QualificationCourseRequest;
 use App\Models\QualificationUser;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Validation\ValidationException;
+=======
+>>>>>>> origin/khader
 
 class QualificationCourseController extends Controller
 {
@@ -48,14 +51,21 @@ class QualificationCourseController extends Controller
     {
         try {
             DB::beginTransaction();
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/khader
             $qualification_course = QualificationCourse::create([
                 'name' => $request->name,
                 'description' => $request->description,
                 'date' => $request->date,
                 'count_subscribers' => $request->count_subscribers,
                 'price' => $request->price,
+<<<<<<< HEAD
                 'teacher_name' => $request->teacher_name,
                 'place' => $request->place
+=======
+>>>>>>> origin/khader
             ]);
 
             DB::commit();
@@ -120,7 +130,11 @@ class QualificationCourseController extends Controller
             if ($qualificationUser) {
                 return $this->returnError(500, 'already insert');
             }
+<<<<<<< HEAD
             if ($countUser >= $QualificationCourse->count_subscribers) {
+=======
+            if($countUser >= $QualificationCourse->count_subscribers){
+>>>>>>> origin/khader
                 return $this->returnError(401, 'The number is complete');
             }
             if ($user->user()->wallet->value < $QualificationCourse->price)
@@ -152,10 +166,18 @@ class QualificationCourseController extends Controller
 
         try {
             DB::beginTransaction();
+<<<<<<< HEAD
 
             $qualification_course = QualificationCourse::find($id);
             if (!$qualification_course)
                 return $this->returnError(404, 'not found course');
+=======
+            $user = auth()->user();
+
+            $qualification_course = $user->qualification_courses()->find($id);
+            if (!$qualification_course)
+                return $this->returnError("", 'not found');
+>>>>>>> origin/khader
 
             $qualification_course->update([
                 'name' => isset($request->name) ? $request->name : $qualification_course->name,
@@ -164,17 +186,25 @@ class QualificationCourseController extends Controller
                 'count_subscribers' => isset($request->count_subscribers) ?
                     $request->count_subscribers : $qualification_course->count_subscribers,
                 'price' => isset($request->price) ? $request->price : $qualification_course->price,
+<<<<<<< HEAD
                 'teacher_name' => isset($request->teacher_name) ? $request->teacher_name : $qualification_course->teacher_name,
                 'place' => isset($request->place) ? $request->place : $qualification_course->place,
             ]);
             $qualification_course->save();
+=======
+            ]);
+>>>>>>> origin/khader
 
 
             DB::commit();
             return $this->returnData($qualification_course, 'operation completed successfully');
         } catch (\Exception $ex) {
             DB::rollback();
+<<<<<<< HEAD
             return $this->returnError($ex->getCode(), $ex->getMessage());
+=======
+            return $this->returnError($ex->getCode(), 'Please try again later');
+>>>>>>> origin/khader
         }
     }
 
@@ -195,7 +225,11 @@ class QualificationCourseController extends Controller
             return $this->returnSuccessMessage('operation completed successfully');
         } catch (\Exception $ex) {
             DB::rollback();
+<<<<<<< HEAD
             return $this->returnError($ex->getCode(), $ex->getMessage());
+=======
+            return $this->returnError($ex->getCode(), 'Please try again later');
+>>>>>>> origin/khader
         }
     }
 }

@@ -26,10 +26,19 @@ class TeachingMethodRequest extends FormRequest
     public function rules(): array
     {
         return [
+<<<<<<< HEAD
             'title'=>'string',
             'type'=>'string',
             'description'=>'string',
             'file'=>'file',
+=======
+            'title'=>'required|string',
+            'type'=>'required|string',
+            'description'=>'required|string',
+            'file'=>'required|file',
+            'status'=>'required|boolean',
+            'price'=>'required|numeric'
+>>>>>>> origin/khader
         ];
     }
 

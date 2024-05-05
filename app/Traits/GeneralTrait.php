@@ -40,7 +40,11 @@ trait GeneralTrait
 
     public function returnValidationError($code = "422", $validator)
     {
+<<<<<<< HEAD
         return $this->returnError($code, $validator->errors()->first());
+=======
+        return $this->returnError($code, $validator->errors());
+>>>>>>> origin/khader
     }
 
 

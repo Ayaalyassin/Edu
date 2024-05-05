@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileStudentRequest;
+<<<<<<< HEAD
+=======
+use App\Http\Requests\UpdateProfileStudentRequest;
+>>>>>>> origin/khader
 use App\Models\ProfileStudent;
 use Illuminate\Http\Request;
 use App\Traits\GeneralTrait;
@@ -115,7 +119,11 @@ class ProfileStudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
+<<<<<<< HEAD
     public function update(ProfileStudentRequest $request)
+=======
+    public function update(UpdateProfileStudentRequest $request)
+>>>>>>> origin/khader
     {
         try {
             DB::beginTransaction();

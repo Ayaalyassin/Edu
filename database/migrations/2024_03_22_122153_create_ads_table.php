@@ -18,6 +18,10 @@ return new class extends Migration
             $table->float('price');
             $table->integer('number_students');
             $table->string('file');
+<<<<<<< HEAD
+=======
+            $table->string('place');
+>>>>>>> origin/khader
 
             $table->bigInteger('profile_teacher_id')->unsigned();
             $table->foreign('profile_teacher_id')->references('id')->on('profile_teachers')->onDelete('cascade');

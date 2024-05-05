@@ -97,9 +97,12 @@ class GovernorController extends Controller
                 $image_transactions = $this->saveImage($request->image_transactions, $this->uploadPath);
             }
             $user = auth()->user()->wallet;
+<<<<<<< HEAD
             if (!$user) {
                 return $this->returnError(400, 'not found Auth');
             }
+=======
+>>>>>>> origin/khader
             if ($request->type == 'recharge') {
                 if ($request->amount > $user->value) {
                     return $this->returnError(400, 'not Enough money in wallet');
@@ -113,8 +116,13 @@ class GovernorController extends Controller
                 return $this->returnError(500, 'You must input image transaction');
             }
             $convenor = $user->governor()->create([
+<<<<<<< HEAD
                 'amount' => $request->amount,
                 'type' => $request->type,
+=======
+                'amount' => isset($request->amount) ? $request->amount : null,
+                'type' => isset($request->type) ? $request->type : null,
+>>>>>>> origin/khader
                 'image_transactions' => $image_transactions,
 
             ]);

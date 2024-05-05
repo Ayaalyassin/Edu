@@ -15,7 +15,12 @@ class TeachingMethod extends Model
         'description',
         'file',
         'status',
+<<<<<<< HEAD
         'profile_teacher_id'
+=======
+        'profile_teacher_id',
+        'price'
+>>>>>>> origin/khader
     ];
 
     public function profile_teacher()

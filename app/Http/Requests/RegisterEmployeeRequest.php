@@ -31,7 +31,11 @@ class RegisterEmployeeRequest extends FormRequest
             'password' => 'required|string|min:6',
             'adress'=>'required|string',
             'governorate'=>'required|string',
+<<<<<<< HEAD
             'birth_date'=>'date',
+=======
+            'birth_date'=>'required|date',
+>>>>>>> origin/khader
             'image'=>'sometimes|image|mimes:jpeg,jpg,png,gif',
         ];
     }

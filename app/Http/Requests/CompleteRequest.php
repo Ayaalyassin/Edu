@@ -28,7 +28,11 @@ class CompleteRequest extends FormRequest
         return [
             'self_identity' => 'sometimes|image|mimes:jpeg,jpg,png,gif',
             'cv' => 'sometimes|file|mimes:pdf',
+<<<<<<< HEAD
             'phone' => 'string|required|max:10|min:10',
+=======
+            'phone' => 'string|required',
+>>>>>>> origin/khader
         ];
     }
 

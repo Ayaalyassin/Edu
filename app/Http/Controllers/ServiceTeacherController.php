@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+use App\Http\Requests\UpdateServiceTeacherRequest;
+>>>>>>> origin/khader
 use App\Models\ProfileTeacher;
 use App\Models\ServiceTeacher;
 use Illuminate\Http\Request;
@@ -49,6 +53,13 @@ class ServiceTeacherController extends Controller
 
             $profile_teacher=auth()->user()->profile_teacher()->first();
 
+<<<<<<< HEAD
+=======
+            $profile_teacher->service_teachers()->where('type',$request->type)->first();
+            if($profile_teacher)
+                return $this->returnError('500', 'the service already exist');
+
+>>>>>>> origin/khader
             $service_teacher= $profile_teacher->service_teachers()->create([
                 'price' => $request->price,
                 'type' =>$request->type,
@@ -95,7 +106,11 @@ class ServiceTeacherController extends Controller
     /**
      * Update the specified resource in storage.
      */
+<<<<<<< HEAD
     public function update(ServiceTeacherRequest $request,$id)
+=======
+    public function update(UpdateServiceTeacherRequest $request,$id)
+>>>>>>> origin/khader
     {
         try {
             DB::beginTransaction();

@@ -7,31 +7,20 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class NoteRequest extends FormRequest
+class UpdateProfileStudentRequest extends FormRequest
 {
     use GeneralTrait;
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
+
     public function rules(): array
     {
         return [
-<<<<<<< HEAD
-            'note'=>'required',
-=======
-            'note'=>'required|text',
->>>>>>> origin/khader
-            'student_id'=>'integer'
+            'educational_level'=>'sometimes|string',
+            'description'=>'sometimes|string',
         ];
     }
 

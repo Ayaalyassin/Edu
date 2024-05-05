@@ -7,9 +7,8 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class QualificationCourseRequest extends FormRequest
+class UpdateTeachingMethodRequest extends FormRequest
 {
-
     use GeneralTrait;
     /**
      * Determine if the user is authorized to make this request.
@@ -27,23 +26,18 @@ class QualificationCourseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string',
-            'description' => 'string',
-            'date' => 'date',
-<<<<<<< HEAD
-            'count_subscribers' => 'required|integer|min:2',
-            'price' => 'required|integer|min:1',
-            'teacher_name' => 'required|string',
-            'place' => 'required|string',
-=======
-            'count_subscribers' => 'required|integer',
-            'price' => 'required|integer'
->>>>>>> origin/khader
+            'title'=>'string',
+            'type'=>'string',
+            'description'=>'string',
+            'file'=>'file',
+            'status'=>'boolean',
+            'price'=>'numeric'
         ];
     }
 
     public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException($this->returnValidationError('422', $validator));
+
     }
 }

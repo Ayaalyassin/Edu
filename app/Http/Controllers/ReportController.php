@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProfileStudent;
+<<<<<<< HEAD
+=======
+use App\Models\ProfileTeacher;
+>>>>>>> origin/khader
 use App\Models\Report;
 use Illuminate\Http\Request;
 use App\Traits\GeneralTrait;
@@ -56,6 +60,7 @@ class ReportController extends Controller
 
             $profile_student = ProfileStudent::find($request->reported_id);
             if (!$profile_student) {
+<<<<<<< HEAD
                 return $this->returnError("401", __('frontend.Not found', [], app()->getLocale()) . ' User Id : ' . $request->rateable_id);
 
             }
@@ -68,13 +73,31 @@ class ReportController extends Controller
 //                ]);
 //            }
             //else {
+=======
+                return $this->returnError("401", __('Not found', [], app()->getLocale()) . ' User Id : ' . $request->rateable_id);
+
+            }
+
+            $report = $user->report_as_reporter()->where('reported_id', $request->reported_id)->first();
+            if ($report) {
+                $report = $user->report_as_reporter()->update([
+                    'reason' => $request->reason,
+                    'date'=>Carbon::now()->format('Y-m-d H:i:s')
+                ]);
+            }
+            else {
+>>>>>>> origin/khader
                 $report = $user->report_as_reporter()->create([
                     'reason' => $request->reason,
                     'reported_id' => $request->reported_id,
                     'reported_type' => "App\Models\ProfileStudent",
                     'date'=>Carbon::now()->format('Y-m-d H:i:s')
                 ]);
+<<<<<<< HEAD
             //}
+=======
+            }
+>>>>>>> origin/khader
 
             $profile_student->loadMissing('report_as_reported');
 
@@ -87,6 +110,52 @@ class ReportController extends Controller
         }
     }
 
+<<<<<<< HEAD
+=======
+
+
+    public function report_teacher(ReportRequest $request)
+    {
+        try {
+            DB::beginTransaction();
+
+            $user = auth()->user()->profile_student()->first();
+
+            $profile_teacher = ProfileTeacher::find($request->reported_id);
+            if (!$profile_teacher) {
+                return $this->returnError("401", __('Not found', [], app()->getLocale()) . ' User Id : ' . $request->rateable_id);
+
+            }
+
+            $report = $user->report_as_reporter()->where('reported_id', $request->reported_id)->first();
+            if ($report) {
+                $report = $user->report_as_reporter()->update([
+                    'reason' => $request->reason,
+                    'date'=>Carbon::now()->format('Y-m-d H:i:s')
+                ]);
+            }
+            else {
+                $report = $user->report_as_reporter()->create([
+                    'reason' => $request->reason,
+                    'reported_id' => $request->reported_id,
+                    'reported_type' => "App\Models\ProfileTeacher",
+                    'date'=>Carbon::now()->format('Y-m-d H:i:s')
+                ]);
+            }
+
+            $profile_teacher->loadMissing('report_as_reported');
+
+
+            DB::commit();
+            return $this->returnData($profile_teacher, 'operation completed successfully');
+        } catch (\Exception $ex) {
+            DB::rollback();
+            return $this->returnError($ex->getCode(), $ex->getMessage());
+        }
+    }
+
+
+>>>>>>> origin/khader
     /**
      * Display the specified resource.
      */

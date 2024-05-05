@@ -26,15 +26,22 @@ class ProfileTeacherRequest extends FormRequest
     public function rules(): array
     {
         return [
+<<<<<<< HEAD
             'certificate' => 'sometimes|image|mimes:jpeg,jpg,png,gif',
+=======
+            'certificate' => 'required|image|mimes:jpeg,jpg,png,gif',
+>>>>>>> origin/khader
             'description' => 'required|string',
             'jurisdiction' => 'required|string',
             'domain' => 'required|string',
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/khader
         ];
     }
 

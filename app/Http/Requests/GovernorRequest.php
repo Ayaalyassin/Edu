@@ -29,7 +29,11 @@ class GovernorRequest extends FormRequest
         return [
             'image_transactions' => 'sometimes|image|mimes:jpeg,jpg,png,gif',
             'type' => 'required|string',
+<<<<<<< HEAD
             'amount' => 'required|integer|min:1',
+=======
+            'amount' => 'required|integer|min:0',
+>>>>>>> origin/khader
         ];
     }
 

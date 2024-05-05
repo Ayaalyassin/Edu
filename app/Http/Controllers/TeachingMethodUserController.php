@@ -13,9 +13,14 @@ use App\Models\TeachingMethod;
 class TeachingMethodUserController extends Controller
 {
     use GeneralTrait;
+<<<<<<< HEAD
     /**
      * Display a listing of the resource.
      */
+=======
+
+
+>>>>>>> origin/khader
     public function getMyTeachingMethod()
     {
         try {
@@ -28,6 +33,7 @@ class TeachingMethodUserController extends Controller
         }
     }
 
+<<<<<<< HEAD
     /**
      * Show the form for creating a new resource.
      */
@@ -39,6 +45,10 @@ class TeachingMethodUserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+=======
+
+
+>>>>>>> origin/khader
     public function store(TeachingMethodUserRequest $request)
     {
         try {
@@ -67,6 +77,7 @@ class TeachingMethodUserController extends Controller
         }
     }
 
+<<<<<<< HEAD
     /**
      * Display the specified resource.
      */
@@ -94,6 +105,9 @@ class TeachingMethodUserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+=======
+
+>>>>>>> origin/khader
     public function destroy($id)
     {
         try {
