@@ -28,8 +28,8 @@ class UpdateEmployeeRequest extends FormRequest
         return [
             'name' => 'sometimes|string|between:2,100',
             'email' => 'sometimes|string|email|max:100|unique:users',
-            'password' => 'sometimes|string|min:6',
-            'adress'=>'sometimes|string',
+            'password' => 'required|string|min:6|regex:/[a-zA-Z]/',
+            'address'=>'sometimes|string',
             'governorate'=>'sometimes|string',
             'birth_date'=>'date',
             'image'=>'sometimes|image|mimes:jpeg,jpg,png,gif',

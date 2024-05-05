@@ -29,19 +29,19 @@ class EmployeeController extends Controller
                 'name'           => $request->name,
                 'email'          => $request->email,
                 'password'       => $request->password,
-                'adress'         => $request->adress,
+                'address'         => $request->address,
                 'governorate'    => $request->governorate,
                 'birth_date'     =>$request->birth_date,
                 'image'          =>$image
             ]);
-            $role=Role::where('name','employee');
+            $role=Role::where('name','employee')->first();
             $data->assignRole($role);
             DB::commit();
             return $this->returnData($data,'operation completed successfully');
         }
         catch (\Exception $ex) {
             DB::rollBack();
-            return $this->returnError($ex->getCode(),'Please try again later');
+            return $this->returnError($ex->getCode(),$ex->getMessage());
 
         }
     }
@@ -64,7 +64,7 @@ class EmployeeController extends Controller
                 'name'           => isset($request->name)? $request->name :$data->name,
                 'email'          => isset($request->email)? $request->email :$data->email,
                 'password'       => isset($request->password)? $request->password :$data->password,
-                'adress'         => isset($request->adress)? $request->adress :$data->adress,
+                'address'         => isset($request->address)? $request->address :$data->address,
                 'governorate'    => isset($request->governorate)? $request->governorate :$data->governorate,
                 'image'          => isset($request->image)? $image :$data->image,
                 'birth_date'     => isset($request->birth_date)? $request->birth_date :$data->birth_date,
@@ -81,7 +81,9 @@ class EmployeeController extends Controller
     public function getById($id)
     {
         try {
-            $data=User::where('id',$id)->first();
+            $data=User::where('id',$id)->whereHas('roles',function ($query){
+                $query->where('name',"employee");
+            })->first();
             if (!$data) {
                 return $this->returnError("401",'Not found');
             }
@@ -111,6 +113,18 @@ class EmployeeController extends Controller
         } catch (\Exception $ex) {
                 return $this->returnError($ex->getCode(),'Please try again later');
 
+        }
+    }
+
+    public function getAll()
+    {
+        try {
+            $data = User::whereHas('roles',function ($query){
+                $query->where('name',"employee");
+            })->get();
+            return $this->returnData($data,'operation completed successfully');
+        } catch (\Exception $ex) {
+            return $this->returnError($ex->getCode(),'Please try again later');
         }
     }
 

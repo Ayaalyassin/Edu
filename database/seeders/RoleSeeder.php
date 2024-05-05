@@ -42,5 +42,10 @@ class RoleSeeder extends Seeder
 
 >>>>>>> origin/khader
         ]);
+
+        Role::create([
+            'name' => 'employee',
+
+        ]);
     }
 }

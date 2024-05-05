@@ -155,4 +155,19 @@ class ServiceTeacherController extends Controller
             return $this->returnError($ex->getCode(), 'Please try again later');
         }
     }
+
+    public function getMyService()
+    {
+        try {
+            $profile_teacher =auth()->user()->profile_teacher()->first();
+
+            $service_teachers=[];
+            if($profile_teacher)
+               $service_teachers=$profile_teacher->service_teachers()->get();
+
+            return $this->returnData($service_teachers, 'operation completed successfully');
+        } catch (\Exception $ex) {
+            return $this->returnError($ex->getCode(), "Please try again later");
+        }
+    }
 }

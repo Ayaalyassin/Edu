@@ -19,10 +19,9 @@ class IntrestController extends Controller
     {
         try {
             $profile_student=auth()->user()->profile_student()->first();
-            if (!$profile_student) {
-                return $this->returnError("401",'user Not found');
-            }
-            $intrests=$profile_student->intrests()->get();
+            $intrests=[];
+            if($profile_student)
+                $intrests=$profile_student->intrests()->get();
             return $this->returnData($intrests,'operation completed successfully');
         } catch (\Exception $ex) {
             return $this->returnError($ex->getCode(),$ex->getMessage());
