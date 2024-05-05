@@ -15,6 +15,11 @@ class LockHourController extends Controller
     use GeneralTrait;
 
 
+    public function test()
+    {
+        return"test git hub";
+    }
+
     public function index()
     {
         try {
